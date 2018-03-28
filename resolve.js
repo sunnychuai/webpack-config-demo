@@ -85,17 +85,19 @@ module.exports = {
         symlinks: true, //默认值
 
 
+        /* 决定请求是否应该被缓存的函数 function
+         * 函数传入一个带有 path 和 request 属性的对象
+         */
+        cachePredicate: (path, request) => true, //默认值
+    },
 
-
-
-
-
-
-
-
-
-
-
-
-    }
+    /* 解析 webpack 的 loader 包 
+     * 等同于 resolve
+     */
+    resolveLoader: {
+        modules: ['node_modules'],
+        extensions: ['.js', '.json'],
+        mainFields: ['loader', 'main'],
+        moduleExtensions: ['-loader']
+    },
 }
